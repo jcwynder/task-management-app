@@ -7,6 +7,19 @@
     <title>Task Management App</title>
   </head>
   <body>
+    <h1>Task Manager</h1>
+
+    <!-- Input Fields -->
+    <div>
+      <input type="text" id="taskName" placeholder="Task Name" />
+      <input type="text" id="category" placeholder="Category" />
+      <input type="date" id="deadline" />
+      <select id="status">
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <button onclick="addTask()">Add Task</button>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
