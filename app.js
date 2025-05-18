@@ -12,8 +12,8 @@ function displayTasks() {
   const tbody = document.getElementById("taskContent");
   const filter = document.getElementById("combinedFilters").value;
   const combinedFilterElement = document.getElementById("combinedFilters");
-  // Intialized/declared variable to store data for created tr element
-  const row = document.createElement("tr");
+  // Saves selected filter value from dropdown
+  const savedFilter = combinedFilterElement.value;
   // Date object initialized to the current date and time based on user's system clock
   const now = new Date();
   // Clears existing data in table body before populating it with new content for a clean refresh
@@ -32,11 +32,18 @@ function displayTasks() {
   Used to filter tasks based on their status using the predefined options
   */
   combinedFilterElement.innerHTML = `
-    <option value="">All</option>
-    <option value="status:In Progress">Status: In Progress</option>
-    <option value="status:Completed">Status: Completed</option>
-    <option value="status:Overdue">Status: Overdue</option>
-  `;
+  <option value="">All</option>
+  <option value="status:In Progress">Status: In Progress</option>
+  <option value="status:Completed">Status: Completed</option>
+  <option value="status:Overdue">Status: Overdue</option>
+`;
+
+  // Preserves user's dropdown selection after select options are refreshed upon dynamic rendering
+  Array.from(combinedFilterElement.options).forEach((option) => {
+    if (option.value === savedFilter) {
+      option.selected = true;
+    }
+  });
 
   // Iterates through each item (categories) in the array
   uniqueCategories.forEach((category) => {
@@ -46,22 +53,27 @@ function displayTasks() {
     option.value = `category:${category}`;
     // Sets visible text of created option in the filter dropdown using the applied string format
     option.textContent = `Category: ${category}`;
-    // if statement used to marked selected option as true if current filter matches option's value
-    if (filter === option.value) option.selected = true;
+    /* 
+    if statement that checks if current dropdown option's value matches value from savedFilter
+    If values match from both variables, savedFilter options are preserved when dropdown is dynamically updated
+    */
+    if (savedFilter === option.value) option.selected = true;
     // Dyncamically adds newly created optiion to filter dropdown
     combinedFilterElement.appendChild(option);
   });
 
   // Iterates through each task object in a given position
   tasks.forEach((task, index) => {
+    // Intialized/declared variable to store data for created tr element
+    const row = document.createElement("tr");
     // Gets current status of a task
     let currentStatus = task.status;
     // Converts the task’s deadline string into a Date object to be compared to the current time
     const deadlineDate = new Date(task.deadline);
     /*
-          Checks if task is overdue. 
-          If the task is not complete and the deadline has passed from current date, then the task is overdue (true)
-          */
+    Checks if task is overdue. 
+    If the task is not complete and the deadline has passed from current date, then the task is overdue (true)
+    */
     const isOverdue = currentStatus !== "Completed" && deadlineDate < now;
     // Sets displayStatus of task to overdue if true, otherwise remains as currentStatus
     const displayedStatus = isOverdue ? "Overdue" : currentStatus;
