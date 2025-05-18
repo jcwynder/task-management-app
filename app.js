@@ -12,3 +12,17 @@ const status = document.getElementById("status");
 const tbody = document.getElementById("taskContent");
 const filter = document.getElementById("combinedFilter");
 const combinedFilterElement = document.getElementById("combinedFilter");
+
+// Function to save user tasks to their local storage
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// Function to implement functionality for user to load task data from their local storage
+window.onload = function () {
+  const savedTasks = localStorage.getItem("tasks");
+  if (savedTasks) {
+    tasks = JSON.parse(savedTasks);
+  }
+  displayTasks();
+};
