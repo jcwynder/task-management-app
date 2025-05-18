@@ -12,6 +12,8 @@ function displayTasks() {
   const tbody = document.getElementById("taskContent");
   const filter = document.getElementById("combinedFilters").value;
   const combinedFilterElement = document.getElementById("combinedFilters");
+  // Intialized/declared variable to store data for created tr element
+  const row = document.createElement("tr");
   // Date object initialized to the current date and time based on user's system clock
   const now = new Date();
   // Clears existing data in table body before populating it with new content for a clean refresh
@@ -35,6 +37,76 @@ function displayTasks() {
     <option value="status:Completed">Status: Completed</option>
     <option value="status:Overdue">Status: Overdue</option>
   `;
+
+  // Iterates through each item (categories) in the array
+  uniqueCategories.forEach((category) => {
+    // Creates a new option element in the filter dropdown
+    const option = document.createElement("option");
+    // Sets value attribute of the option property to a string format: category:category name
+    option.value = `category:${category}`;
+    // Sets visible text of created option in the filter dropdown using the applied string format
+    option.textContent = `Category: ${category}`;
+    // if statement used to marked selected option as true if current filter matches option's value
+    if (filter === option.value) option.selected = true;
+    // Dyncamically adds newly created optiion to filter dropdown
+    combinedFilterElement.appendChild(option);
+  });
+
+  // Iterates through each task object in a given position
+  tasks.forEach((task, index) => {
+    // Gets current status of a task
+    let currentStatus = task.status;
+    // Converts the task’s deadline string into a Date object to be compared to the current time
+    const deadlineDate = new Date(task.deadline);
+    /*
+          Checks if task is overdue. 
+          If the task is not complete and the deadline has passed from current date, then the task is overdue (true)
+          */
+    const isOverdue = currentStatus !== "Completed" && deadlineDate < now;
+    // Sets displayStatus of task to overdue if true, otherwise remains as currentStatus
+    const displayedStatus = isOverdue ? "Overdue" : currentStatus;
+
+    // if statement to check if current filter status starts with status:
+    if (filter.startsWith("status:")) {
+      // If above line is true, splits filter string at :, then extracts second part [1], which is value of status:
+      const statusValue = filter.split(":")[1];
+      // If statement that skips task if displayStatus doesn't match the selected statusValue
+      if (displayedStatus !== statusValue) return;
+      // If displayStatus doesn't match selected statusValue, checks if current filter status startswith category:
+    } else if (filter.startsWith("category:")) {
+      // If above line is true, splits filter string at :, then extracts second part [1], which is value of category:
+      const categoryValue = filter.split(":")[1];
+      // If statement that skips task if task's category doesn't match the selected categoryValue
+      if (task.category !== categoryValue) return;
+    }
+
+    /*
+    Dynamically creates table row data (displays taskName, category, and deadline)
+    Renders data using string interpolation. if task staus (value) is overdue, applies "overdue" CSS styling to value
+    Adds a dropdown to each task entry to update status and adds a delete button to remove task when clicked
+    */
+    row.innerHTML = `
+      <td>${task.taskName}</td>
+      <td>${task.category}</td>
+      <td>${task.deadline}</td>
+      <td class="${displayedStatus === "Overdue" ? "overdue" : ""}">
+        ${displayedStatus}
+      </td>
+      <td>
+        <select onchange="updateStatus(${index}, this.value)">
+          <option value="In Progress" ${
+            task.status === "In Progress" ? "selected" : ""
+          }>In Progress</option>
+          <option value="Completed" ${
+            task.status === "Completed" ? "selected" : ""
+          }>Completed</option>
+        </select>
+        <button onclick="deleteTask(${index})">Delete</button>
+      </td>
+    `;
+    // Adds fully contructed table row data to table body element, which visually displays task data
+    tbody.appendChild(row);
+  });
 }
 
 // Function to add task data
@@ -47,7 +119,7 @@ function addTask() {
 
   // if statement used to alert user to input data using all input fields if any field(s) is left blank upon submission
   if (!taskName || !category || !deadline) {
-    alert("Please fill all fields.");
+    alert("Please fill all fields to add data");
     return;
   }
 
