@@ -109,6 +109,16 @@ function displayTasks() {
   });
 }
 
+// Function to update status data
+function updateStatus(index, newStatus) {
+  // Sets current status data to newStatus data once submitted
+  tasks[index].status = newStatus;
+  // Stores updated task data in user's local storage
+  saveTasks();
+  // Dynamically updates task data display
+  displayTasks();
+}
+
 // Function to add task data
 function addTask() {
   // Initialization/declaration for variables using DOM method to retrieve reference to DOM elements
@@ -125,8 +135,10 @@ function addTask() {
 
   // Adds a new task object (using the properties listed) to the tasks array
   tasks.push({ taskName, category, deadline, status });
-  saveTasks(); // Stores updated task data in user's local storage
-  displayTasks(); // Dynamically updates task data display
+  // Stores updated task data in user's local storage
+  saveTasks();
+  // Dynamically updates task data display
+  displayTasks();
 
   // Clears input fields after user submits data from input fields
   document.getElementById("taskName").value = "";
