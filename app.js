@@ -141,7 +141,7 @@ function addTask() {
 
   // if statement used to alert user to input data using all input fields if any field(s) is left blank upon submission
   if (!taskName || !category || !deadline) {
-    alert("Please fill all fields to add data");
+    alert("Please fill all fields to add task data");
     return;
   }
 

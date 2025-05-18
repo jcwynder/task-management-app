@@ -3,7 +3,7 @@
   margin-top: 15px;
 }
 
-/* Table takes up the fill width of body, space is removed between the boarders of table cells, and space is applied betweeen table and element above */
+/* Table takes up the full width of body, space is removed between the boarders of table cells, and space is applied betweeen table and element above */
 table {
   width: 100%;
   border-collapse: collapse;
