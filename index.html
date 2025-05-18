@@ -22,9 +22,9 @@
     </div>
 
     <!-- Filter Functionality -->
-    <div style="margin-top: 12px">
+    <div id="filterPosition">
       <label>Filter Tasks:</label>
-      <select id="filter" onchange="displayTasks()">
+      <select id="combinedFilters" onchange="displayTasks()">
         <option value="">All</option>
         <option value="status:In Progress">Status: In Progress</option>
         <option value="status:Completed">Status: Completed</option>
@@ -41,7 +41,7 @@
           <th>Category</th>
           <th>Deadline</th>
           <th>Status</th>
-          <th>Update Status</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody id="taskContent">
