@@ -2,7 +2,7 @@
 
 ## Overview
 
-For this assignment, I was tasked with building a dynamic **Task Management App** that allows users to:
+For this assignment, I was tasked with building a dynamic **Task Management App** with the intended goals:
 
 1. Add new tasks with details such as the task name, category, deadline, and status.
 2. Update the status of tasks to reflect their progress (e.g., “In Progress,” “Completed,” “Overdue”).
