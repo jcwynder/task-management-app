@@ -56,7 +56,7 @@ This app is composed of 3 primary sections:
 
 After creating my HTML structure, I moved onto the `<styles.css>` file to apply styling to the app.
 
-I did not implementa great deal of styling. The styling I applied is used to control the layout, appearance, and readability of elements in the task management interface—especially the filter dropdown, table, and status indicators.
+I did not implement a great deal of styling. The styling I applied is used to control the layout, appearance, and readability of elements in the task management interface—especially the filter dropdown, table, and status indicators.
 
 Here's a list of the applied styles I used and their intended purpose:
 
