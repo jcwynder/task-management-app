@@ -46,15 +46,15 @@ After creating my required files, I proceeded into the `<index.html>` file to cr
 
 This app is composed of 3 primary sections:
 
-- Input fields (wrapped in a `<div>`) to collect and proccess entered data
-- A filter dropdown (also wrapped in a `<div>`) that allows users to filter task data based on selected filter option(s)
-- A table to render task data, which includes a task's name, category, deadline, status, and actions
+- Input fields (wrapped in a `<div>`) to collect and proccess entered data.
+- A filter dropdown (also wrapped in a `<div>`) that allows users to filter task data based on selected filter option(s).
+- A table to render task data, which includes a task's name, category, deadline, status, and actions.
 
 ### App Styling
 
 After creating my HTML structure, I moved onto the `<styles.css>` file to apply styling to the app.
 
-I did not implementa great deal of styling. The styling I applied is used to control the layout, appearance, and readability of elements in the task management interface—especially the filter dropdown, table, and status indicators
+I did not implementa great deal of styling. The styling I applied is used to control the layout, appearance, and readability of elements in the task management interface—especially the filter dropdown, table, and status indicators.
 
 Here's a list of the applied styles I used and their intended purpose:
 
