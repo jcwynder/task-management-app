@@ -1,7 +1,5 @@
 # Task Management App
 
-![Design preview for Task Management App](#)
-
 ## Overview
 
 For this assignment, I was tasked with building a dynamic **Task Management App** that allows users to:
@@ -13,6 +11,26 @@ For this assignment, I was tasked with building a dynamic **Task Management App*
 5. Persist task data using local storage so tasks are saved even after refreshing the page.
 
 To implement the core functionality of this assignment, I applied a wide range of JavaScript concepts, including **arrays**, **objects**, **DOM manipulation**, **conditionals**, and **local storage** to persist the task data.
+
+## App Preview
+
+Task Management App
+![Design preview for Task Management App](images/TaskManagementAppPreview.png)
+
+Alert if input fields left blank upon submission of Add Task button
+![Design preview for Task Management App](images/TaskManagementAppPreviewAlertIfInputFieldsLeftBlankUponSubmission.png)
+
+Functionality of task filter by status
+![Design preview for Task Management App](images/TaskManagementAppPreviewTaskDataFilteredToStatusInProgress.png)
+
+Functionality of task filter by category
+![Design preview for Task Management App](images/TaskManagementAppPreviewTaskDataFilteredByCategory.png)
+
+Update status functionality
+![Design preview for Task Management App](images/TaskManagementAppPreviewStatusChangeFunctionality.png)
+
+Delete task data functionality
+![Design preview for Task Management App](images/TaskManagementAppPreviewDeleteFunctionalityConfirmationMessage.png)
 
 ## Implementation
 

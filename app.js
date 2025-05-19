@@ -131,6 +131,22 @@ function updateStatus(index, newStatus) {
   displayTasks();
 }
 
+// Function to delete task data
+function deleteTask(index) {
+  // if statement used to collect user's response to dialog box (message) after clicking delete button
+  if (confirm("Are you sure you want to delete this task?")) {
+    /*
+    If user selects "ok" as response to message:
+    1 task is deleted from memory at the specified index from the task array
+    */
+    tasks.splice(index, 1);
+    // Stores updated task data in user's local storage
+    saveTasks();
+    // Dynamically updates task data display
+    displayTasks();
+  }
+}
+
 // Function to add task data
 function addTask() {
   // Initialization/declaration for variables using DOM method to retrieve reference to DOM elements
