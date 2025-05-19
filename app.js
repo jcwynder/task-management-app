@@ -181,5 +181,6 @@ window.onload = function () {
   if (savedTasks) {
     tasks = JSON.parse(savedTasks);
   }
-  displayTasks(); // Dynamically updates task data display
+  // Dynamically updates task data display
+  displayTasks();
 };
