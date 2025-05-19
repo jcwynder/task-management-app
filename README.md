@@ -17,7 +17,7 @@ To implement the core functionality of this assignment, I applied a wide range o
 Task Management App
 ![Design preview for Task Management App](images/TaskManagementAppPreview.png)
 
-Alert if input fields left blank upon submission of Add Task button
+Alert if input fields are left blank upon submission from Add Task button
 ![Design preview for Task Management App](images/TaskManagementAppPreviewAlertIfInputFieldsLeftBlankUponSubmission.png)
 
 Functionality of task filter by status
@@ -121,6 +121,23 @@ Below is a brief overview of the order of JavaScript code implemented:
 
 - Created function to add user task data.
 
-- Created function to implement functionality for user to load task data from their local storage.
+- Created function to implement functionality for user to load task data from their local storage whenever app page is refreshed
 
 ## Reflection
+
+### Challenge(s) Faced
+
+Throughout this assignment, I encountered one major challenge that required me to revisit concepts I thought I had mastered and deepen my understanding of some core JavaScript fundamentals.
+
+While I was already comfortable with implementing functionality for tasks like storing data as objects, rendering, updating, deleting, and saving/loading data from local storage, the biggest hurdle came when I had to get the filter dropdown options to properly filter the task data based on the selected criteria.
+
+### Approach to Solving Challenge(s)
+
+I had to look into how to utilize the given and generated options within the filter dropdown once selected to only render task data whose information matched the selected options.
+To solve this, I had to explore how to utilize the selected options from the dropdown to display only the tasks whose properties matched the filter. I began by creating a variable to store the selected filter options. Then, I implemented an array to iterate through the stored values and ensure that the correct options were selected when the dropdown was refreshed.
+
+This approach allowed me to filter the task data efficiently, ensuring that only the tasks matching the selected criteria were rendered on the page.
+
+### What I Would Improve
+
+Looking ahead, if I had more time, I would implement a feature that allows users to update all properties of the rendered task data (task name, category, and deadline) directly, rather than having to create a new task entry to make changes. Additionally, I would enhance the user interface with color and accessibility improvements to make the app more visually appealing and user-friendly.
