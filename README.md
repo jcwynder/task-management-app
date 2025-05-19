@@ -12,6 +12,8 @@ For this assignment, I was tasked with building a dynamic **Task Management App*
 
 To implement the core functionality of this assignment, I applied a wide range of JavaScript concepts, including **arrays**, **objects**, **DOM manipulation**, **conditionals**, and **local storage** to persist the task data.
 
+[Click Here to Access Task Management App](https://htmlpreview.github.io/?https://github.com/jcwynder/task-management-app/blob/main/index.html)
+
 ## App Preview
 
 Task Management App
