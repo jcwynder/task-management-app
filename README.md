@@ -36,9 +36,9 @@ Delete task data functionality
 
 To begin working on this assignment, I created 3 files:
 
-- `<index.html>` file to render my task data and allow users to ultilize the features I created
-- `<styles.css>` file to apply styling to app
-- `<app.js>` file to implement functionality for the the app's requirements
+- `<index.html>` file to render my task data and allow users to ultilize the features I created.
+- `<styles.css>` file to apply styling to app.
+- `<app.js>` file to implement functionality for the the app's requirements.
 
 ### HTML Structure
 
@@ -121,7 +121,7 @@ Below is a brief overview of the order of JavaScript code implemented:
 
 - Created function to add user task data.
 
-- Created function to implement functionality for user to load task data from their local storage whenever app page is refreshed
+- Created function to implement functionality for user to load task data from their local storage whenever app page is refreshed.
 
 ## Reflection
 
